@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar Kontak Warga per Desa</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-card {
+      background-color: #fefefe;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card h2 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .contact-card p {
+      color: #555;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
+
+    .button-container {
+      margin-top: auto;
+    }
+
+    .copy-btn {
+      padding: 8px 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .copy-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .copied-notice {
+      margin-top: 8px;
+      background-color: #2ecc71;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-align: center;
+      display: none;
+    }
+
+    .rw-contact {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daftar Kontak Warga</h1>
+  </header>
+
+  <!-- Section: Kp. Mekarsari RW 9 Desa Wargamekar Kecamatan Baleendah -->
+  <section>
+    <div class="section-title">Kp. Mekarsari RW 9 - Desa Wargamekar, Kec. Baleendah</div>
+    <div class="contact-list">
+      <div class="contact-card">
+        <h2>RT 1 - Pa Heri</h2>
+        <p>Telepon: <span class="phone-number">081323558045</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 2 - Pa Ramdan Mubarok</h2>
+        <p>Telepon: <span class="phone-number">085220966183</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 3 - Pa Ata</h2>
+        <p>Telepon: <span class="phone-number">085314774577</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 3 - Bu Cucu</h2>
+        <p>Telepon: <span class="phone-number">081384968306</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 4 - Pak Jajang Suherman</h2>
+        <p>Telepon: <span class="phone-number">08122492839</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 5 - Pak Rosid</h2>
+        <p>Telepon: <span class="phone-number">081246640344</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 6 - Pak Tatang</h2>
+        <p>Telepon: <span class="phone-number">083819188460</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Citunggul RW 13 -->
+  <section>
+    <div class="section-title">RW 13 Citunggul</div>
+    <div class="rw-contact">
+      <div class="contact-card">
+        <h2>RW 13 - Pak Setra Saepuloh</h2>
+        <p>Telepon: <span class="phone-number">083879489584</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-list">
+      <!-- RT 01 - Pak Harun -->
+      <div class="contact-card">
+        <h2>RT 01 RW 13 - Pak Harun</h2>
+        <p>Telepon: <span class="phone-number">083854909964</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 02 - Bu Khadijah -->
+      <div class="contact-card">
+        <h2>RT 02 RW 13 - Bu Khadijah</h2>
+        <p>Telepon: <span class="phone-number">083106043399</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 03 - Pak Rian -->
+      <div class="contact-card">
+        <h2>RT 03 RW 13 - Pak Rian</h2>
+        <p>Telepon: <span class="phone-number">082127095502</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 04 - Pak Diko -->
+      <div class="contact-card">
+        <h2>RT 04 RW 13 - Pak Diko</h2>
+        <p>Telepon: <span class="phone-number">083142638110</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 05 - Pak Abdul Rohman -->
+      <div class="contact-card">
+        <h2>RT 05 RW 13 - Pak Abdul Rohman</h2>
+        <p>Telepon: <span class="phone-number">083856207825</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 06 - Bu Dini -->
+      <div class="contact-card">
+        <h2>RT 06 RW 13 - Bu Dini</h2>
+        <p>Telepon: <span class="phone-number">0881023289359</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 07 - Ai Wiwi -->
+      <div class="contact-card">
+        <h2>RT 07 RW 13 - Ai Wiwi</h2>
+        <p>Telepon: <span class="phone-number">082129610422</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <!-- RT 07 - Pak Zacky -->
+      <div class="contact-card">
+        <h2>RT 07 RW 13 - Pak Zacky</h2>
+        <p>Telepon: <span class="phone-number">081322781326</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- RW 04 Bojongsari -->
+  <section>
+    <div class="section-title">RW 04 Bojongsari</div>
+    <div class="rw-contact">
+      <div class="contact-card">
+        <h2>RW 04 - Aep Saripudin</h2>
+        <p>Telepon: <span class="phone-number">081212982969</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-list">
+      <div class="contact-card">
+        <h2>RT 01 RW 04 - Neni</h2>
+        <p>Telepon: <span class="phone-number">083179726459</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 02 RW 04 - Cucu</h2>
+        <p>Telepon: <span class="phone-number">08979281164</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 03 RW 04 - Ncar</h2>
+        <p>Telepon: <span class="phone-number">081222857190</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 04 RW 04 - Ika</h2>
+        <p>Telepon: <span class="phone-number">085861251355</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 05 RW 04 - Ba Patmi</h2>
+        <p>Telepon: <span class="phone-number">081224882522</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 06 RW 04 - Heri</h2>
+        <p>Telepon: <span class="phone-number">083840974838</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 07 RW 04 - Dani</h2>
+        <p>Telepon: <span class="phone-number">081221073863</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 08 RW 04 - Asep Sodikin</h2>
+        <p>Telepon: <span class="phone-number">0895352505706</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- RW 21 Mekarsari -->
+<section>
+  <div class="section-title">RW 21 Mekarsari</div>
+  <div class="rw-contact">
+    <div class="contact-card">
+      <h2>RW 21 - Pak Budiono</h2>
+      <p>Telepon: <span class="phone-number">089518294831</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-list">
+    <div class="contact-card">
+      <h2>RT 01 RW 21</h2>
+      <p>Telepon: <span class="phone-number">082118726141</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>RT 02 RW 21</h2>
+      <p>Telepon: <span class="phone-number">089662167583</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>RT 02 RW 22 - Ibu Ati Yulia</h2>
+      <p>Telepon: <span class="phone-number">0895341660064</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>RT 03 RW 21</h2>
+      <p>Telepon: <span class="phone-number">081224880875</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>RT 03 RW 22 - Ibu Yanti</h2>
+      <p>Telepon: <span class="phone-number">0895385414029</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>RT 04 RW 21</h2>
+      <p>Telepon: <span class="phone-number">089519814845</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>RT 05 RW 21</h2>
+      <p>Telepon: <span class="phone-number">089612858922</span></p>
+      <div class="button-container">
+        <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+        <div class="copied-notice">Disalin!</div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Section: Other -->
+  <section>
+    <div class="section-title">Other</div>
+    <div class="contact-list">
+      <div class="contact-card">
+        <h2>Agus Sopandi TR</h2>
+        <p>Telepon: <span class="phone-number">08112042364</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>Bpk Rudi Koor Arjuna Land City</h2>
+        <p>Telepon: <span class="phone-number">082272409529</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>Pa Iwan Rw 04 Gang Demang</h2>
+        <p>Telepon: <span class="phone-number">085720384393</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 05 RW 02 Bu Nani</h2>
+        <p>Telepon: <span class="phone-number">0895320706989</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 01 RW 19</h2>
+        <p>Telepon: <span class="phone-number">083816778998</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 02 Bpk Saepuloh</h2>
+        <p>Telepon: <span class="phone-number">082315217628</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 02 RW 16</h2>
+        <p>Telepon: <span class="phone-number">083165089375</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RT 03 RW 16 Pak Komar</h2>
+        <p>Telepon: <span class="phone-number">081548352962</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>Bu Teti Warini Dewi</h2>
+        <p>Telepon: <span class="phone-number">081212982969</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RW 11 Lembang 2 Ibu Siti</h2>
+        <p>Telepon: <span class="phone-number">082129152412</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>RW 22 Mekarsari Bapak Dede</h2>
+        <p>Telepon: <span class="phone-number">082120584371</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>Pak Riki Grand Riscon</h2>
+        <p>Telepon: <span class="phone-number">08122137599</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2>Pak Ruri Grand Riscon</h2>
+        <p>Telepon: <span class="phone-number">085975420519</span></p>
+        <div class="button-container">
+          <button class="copy-btn" onclick="copyNumber(this)">Salin</button>
+          <div class="copied-notice">Disalin!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function copyNumber(button) {
+      const card = button.closest('.contact-card');
+      const phone = card.querySelector('.phone-number').textContent;
+      navigator.clipboard.writeText(phone).then(() => {
+        const notice = card.querySelector('.copied-notice');
+        notice.style.display = 'block';
+        setTimeout(() => {
+          notice.style.display = 'none';
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
